@@ -1,5 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 
-def home_view(request):
-    return render(request, "home.html")
+from articles.models import Article
+
+
+def home_view(request, *args, **kwargs):
+    article_queryset = Article.objects.all()
+    context = {
+        "object_list": article_queryset,
+    }
+    return render(request, "home-view.html", context=context)

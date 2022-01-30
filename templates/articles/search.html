@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %} {% if object %}
+<h1>{{ object.title }}</h1>
+<p>{{ object.content }}</p>
+
+{% endif %}
+
+<h1>Search results:</h1>
+
+{% if object %}
+<ul>
+  {% for x in object %} {% if x.title %}
+  <li><a href="/articles/{{ x.id }}/">{{ x.title }}</a></li>
+  {% endif %} {% endfor %}
+</ul>
+{% else %}
+<p>No search results for "{{ query }}" query.</p>
+{% endif %} {% endblock content %}

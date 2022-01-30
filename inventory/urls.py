@@ -7,6 +7,12 @@ from accounts.views import (
     register_view
 )
 
+from articles.views import (
+    article_search_view,
+    article_create_view,
+    article_detail_view
+)
+
 from .views import home_view
 
 urlpatterns = [
@@ -15,4 +21,7 @@ urlpatterns = [
     path('login/', login_view),
     path('logout/', logout_view),
     path('register/', register_view),
+    path('articles/', article_search_view),
+    path('articles/create/', article_create_view),
+    path('articles/<int:id>/', article_detail_view),
 ]

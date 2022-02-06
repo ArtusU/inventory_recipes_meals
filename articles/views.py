@@ -2,7 +2,7 @@ from operator import contains
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .forms import ArticleForm
 from .models import Article
@@ -35,7 +35,7 @@ def article_create_view(request):
         context['form'] = ArticleForm()
         # context['object'] = article_object
         # context['created'] = True
-        return render(request, "articles/create.html", context=context)
+        return redirect(article_object.get_absolute_url())
     return render(request, "articles/create.html", context=context)
 
 

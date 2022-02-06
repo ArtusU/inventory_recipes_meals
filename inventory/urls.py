@@ -25,6 +25,6 @@ urlpatterns = [
     path('register/', register_view),
     
     path('articles/', article_search_view),
-    path('articles/create/', article_create_view),
-    path('articles/<slug:slug>/', article_detail_view),
+    path('articles/create/', article_create_view, name='article-create'),
+    path('articles/<slug:slug>/', article_detail_view, name='article-detail'),
 ]

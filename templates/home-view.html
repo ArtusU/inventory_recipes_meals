@@ -2,10 +2,9 @@
 
 {% block content %}
 <h1>All Articles</h1>
-
 <ul>
   {% for x in object_list %} {% if x.title %}
-  <li><a href="/articles/{{ x.slug }}/">{{ x.title }}</a></li>
+  <li><a href="{{ x.get_absolute_url }}">{{ x.title }}</a></li>
   {% endif %} {% endfor %}
 </ul>
 

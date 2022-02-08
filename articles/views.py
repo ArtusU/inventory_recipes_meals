@@ -1,4 +1,5 @@
 from operator import contains
+from re import A
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
@@ -6,23 +7,20 @@ from django.shortcuts import render
 
 from .forms import ArticleForm
 from .models import Article
-# Create your views here.
+
 
 def article_search_view(request):
-    try:
-        query = request.get("q")
-    except:
-        query = None
-        
-    article_obj = None
+    query = request.GET.get('q')
+    qs = Article.objects.all()
     if query is not None:
-        article_obj = Article.objects.filter(Q(title__contains=query))
-        print(article_obj)
+        lookups = Q(title__icontains=query) | Q(content__icontains=query)
+        qs = Article.objects.filter(lookups)
+        # qs = Article.objects.search(query)
     context = {
-        "object": article_obj,
-        "query": query,
+        "object_list": qs
     }
     return render(request, "articles/search.html", context=context)
+
 
 @login_required
 def article_create_view(request):

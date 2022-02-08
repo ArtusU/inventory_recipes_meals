@@ -1,17 +1,18 @@
-{% extends "base.html" %} {% block content %} {% if object %}
-<h1>{{ object.title }}</h1>
-<p>{{ object.content }}</p>
+{% extends "base.html" %}
 
-{% endif %}
 
-<h1>Search results:</h1>
+{% block content %}
 
-{% if object %}
-<ul>
-  {% for x in object %} {% if x.title %}
-  <li><a href="/articles/{{ x.id }}/">{{ x.title }}</a></li>
-  {% endif %} {% endfor %}
-</ul>
-{% else %}
-<p>No search results for "{{ query }}" query.</p>
-{% endif %} {% endblock content %}
+<ol>
+{% for object in object_list %}
+    {% if object.title %}
+    <li>
+        <a href="{{ object.get_absolute_url }}">
+            {{ object.title }}
+        </a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ol>
+
+{% endblock content %}

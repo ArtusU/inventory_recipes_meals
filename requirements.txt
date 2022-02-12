@@ -1,4 +1,13 @@
 asgiref==3.5.0
 Django==4.0.1
+django-crispy-forms==1.14.0
+engineering-notation==0.6.0
+future==0.18.2
+packaging==21.3
+Pint==0.18
+pyparsing==3.0.7
+python-decouple==3.5
 sqlparse==0.4.2
+tk-tools==0.14.0
+tkintertable==1.3.3
 tzdata==2021.5

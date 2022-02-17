@@ -21,6 +21,7 @@ class ArticleQuerySet(models.QuerySet):
 class ArticleManager(models.Manager):
     def get_queryset(self):
         return ArticleQuerySet(self.model, using=self._db)
+    
     def search(self, query=None, **kwargs):
         return self.get_queryset().search(query=query)
 
@@ -37,7 +38,7 @@ class Article(models.Model):
     objects = ArticleManager()
     
     def get_absolute_url(self):
-        return reverse('article-detail', kwargs={'slug': self.slug})
+        return reverse('articles:detail', kwargs={'slug': self.slug})
     
     
 def article_pre_save(sender, instance, *args, **kwargs):

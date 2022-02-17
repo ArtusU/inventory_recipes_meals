@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from accounts.views import (
     login_view,
@@ -20,11 +20,12 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     
+    path('pantry/recipes/', include('recipes.urls')),
+    
+    path('articles/', include('articles.urls')),
+    
     path('login/', login_view),
     path('logout/', logout_view),
     path('register/', register_view),
     
-    path('articles/', article_search_view),
-    path('articles/create/', article_create_view, name='article-create'),
-    path('articles/<slug:slug>/', article_detail_view, name='article-detail'),
 ]

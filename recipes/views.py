@@ -1,9 +1,9 @@
-from operator import is_
 from django.contrib.auth.decorators import login_required
+from django.forms.models import modelformset_factory
 from django.shortcuts import redirect, render, get_object_or_404
 
-from .forms import RecipeForm
-from .models import Recipe
+from .forms import RecipeForm, RecipeIngredientForm
+from .models import Recipe, RecipeIngredient
 
 
 @login_required
@@ -42,12 +42,24 @@ def recipe_create_view(request):
 def recipe_update_view(request, id=None):
     obj = get_object_or_404(Recipe, id=id, user=request.user)
     form = RecipeForm(request.POST or None, instance=obj)
+    RecipeIngredientFormset = modelformset_factory(RecipeIngredient, form=RecipeIngredientForm, extra=0)
+    qs = obj.recipeingredient_set.all()
+    formset = RecipeIngredientFormset(request.POST or None, queryset=qs)
+    
     context = {
         'form': form,
+        'formset': formset,
         'object': obj
     }
-    if form.is_valid():
-        obj = form.save()
+    if all([form.is_valid(), formset.is_valid()]):
+        recipe = form.save(commit=False)
+        recipe.save()
+        for ingredient_form in formset:
+            ingredient = ingredient_form.save(commit=False)
+            if ingredient.recipe is None:
+                print("Added new")
+                ingredient.recipe = recipe
+            ingredient.save()
         context['message'] = 'Data saved'
     return render(request, "recipes/create-update.html", context)
 

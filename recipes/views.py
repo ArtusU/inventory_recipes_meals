@@ -50,15 +50,13 @@ def recipe_update_view(request, id=None):
         'form': form,
         'formset': formset,
         'object': obj
-    }
+    } 
     if all([form.is_valid(), formset.is_valid()]):
         recipe = form.save(commit=False)
         recipe.save()
         for ingredient_form in formset:
             ingredient = ingredient_form.save(commit=False)
-            if ingredient.recipe is None:
-                print("Added new")
-                ingredient.recipe = recipe
+            ingredient.recipe = recipe
             ingredient.save()
         context['message'] = 'Data saved'
     return render(request, "recipes/create-update.html", context)

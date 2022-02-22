@@ -1,6 +1,7 @@
 asgiref==3.5.0
 Django==4.0.1
 django-crispy-forms==1.14.0
+django-htmx==1.8.0
 engineering-notation==0.6.0
 future==0.18.2
 packaging==21.3

@@ -1,0 +1,108 @@
+[
+{
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "name": "Mexican Tacos",
+        "description": "Update We are in the middle of moving (always crazy, as I’m sure you know) but the thing I’m wanting to make most once we are all unpacked are these street tacos. I couldn’t count how many times I’ve made these things.\r\n\r\nThey’re always on rotation on our dinner menu, and I love to serve them at parties. Plus they are a healthier dinner option.\r\n\r\nYou’ll love this street taco recipe not only because they taste amazing, but also because it’s one of those easy to throw together recipes and you can also get a head start it a few hours in advance with the marinating.",
+        "directions": "Update These Mexican chicken street tacos require very few ingredients. Most of the ingredients on the list below are spices that I’m sure you already have on hand.\r\n\r\nBoneless skinless chicken thighs: Thighs really are best here. They char better and are more tender and juicy, but if you prefer breasts they will work, just keep an eye on the temp as they dry out easier. Cook just to 165 in the center.\r\nLimes: If you are in a pinch then lemons may be substituted.\r\nOlive oil: Vegetable oil will work too.\r\nGarlic: Fresh garlic really does give the best flavor but if you must 1 tsp granulated garlic can be substituted.\r\nGround cumin: While there isn’t a great substitute for this ingredient you could use other Mexican style spices if you are out such as coriander and paprika.\r\nAncho chili powder: I love the rich flavor of the ancho chili powder but standard chili powder will work too.\r\nCilantro: Crazy enough originally this recipe didn’t include the cilantro but I’ve found it’s so much better with it. Stick with fresh as the dried really is lacking in flavor.\r\nSalt and pepper: Add to taste. I like the marinade to be on the salty side.\r\nOnion and avocado: Or use other desired toppings, see below.",
+        "timestamp": "2022-02-11T11:55:53.390Z",
+        "updated": "2022-02-18T13:25:41.866Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "name": "Update New recipe",
+        "description": "Update New description",
+        "directions": "UpdNew Direction",
+        "timestamp": "2022-02-17T12:45:40.947Z",
+        "updated": "2022-02-19T12:52:05.294Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 1,
+    "fields": {
+        "recipe": 1,
+        "name": "u chicken thighs",
+        "description": "Thighs really are best here. They char better and are more tender and juicy, but if you prefer breasts they will work, just keep an eye on the temp as they dry out easier.",
+        "quantity": "2 1/2",
+        "quantity_as_float": 2.5,
+        "unit": "pounds",
+        "directions": "Cook just to 165 in the center.",
+        "timestamp": "2022-02-11T12:14:14.235Z",
+        "updated": "2022-02-18T13:25:41.890Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 2,
+    "fields": {
+        "recipe": 1,
+        "name": "Corn tortillaaas",
+        "description": "Corn tortillas are the BEST to use for these chicken street tacos. I love these mini corn tortillas that are specifically intended for street tacos, but you can use regular corn tortillas instead.",
+        "quantity": "350",
+        "quantity_as_float": 350.0,
+        "unit": "g",
+        "directions": "I usually heat my corn tortillas on a griddle or skillet for a few minutes on each side.",
+        "timestamp": "2022-02-17T12:29:57.881Z",
+        "updated": "2022-02-18T13:25:41.909Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 3,
+    "fields": {
+        "recipe": 1,
+        "name": "Cooka",
+        "description": null,
+        "quantity": "2",
+        "quantity_as_float": 2.0,
+        "unit": "kg",
+        "directions": null,
+        "timestamp": "2022-02-18T11:30:53.239Z",
+        "updated": "2022-02-18T13:25:41.928Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 4,
+    "fields": {
+        "recipe": 2,
+        "name": "Pasta",
+        "description": null,
+        "quantity": "1",
+        "quantity_as_float": 1.0,
+        "unit": "kg",
+        "directions": null,
+        "timestamp": "2022-02-19T12:52:05.527Z",
+        "updated": "2022-02-19T12:52:05.527Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 5,
+    "fields": {
+        "recipe": 2,
+        "name": "",
+        "description": null,
+        "quantity": "",
+        "quantity_as_float": 0.0,
+        "unit": "",
+        "directions": null,
+        "timestamp": "2022-02-19T12:52:05.546Z",
+        "updated": "2022-02-19T12:52:05.547Z",
+        "active": true
+    }
+}
+]

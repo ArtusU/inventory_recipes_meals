@@ -1,0 +1,30 @@
+<div>
+  <form action="/search/" method="GET" class="form-inline my-2 my-lg-0">
+    <select name="type" id="search-type" class="custom-select">
+      {% if request.GET.type == 'article' %}
+      <option value="article" selected>Articles</option>
+      {% else %}
+      <option value="article">Articles</option>
+      {% endif %} {% if request.GET.type == 'recipe' %}
+      <option value="recipe" selected>Recipes</option>
+      {% else %}
+      <option value="recipe">Recipes</option>
+      {% endif %}
+    </select>
+    <input
+      class="form-control mr-sm-2"
+      type="text"
+      name="q"
+      value="{{ request.GET.q }}"
+      hx-get="/search/"
+      hx-trigger="keyup changed delay:200ms"
+      hx-include="#search-type"
+      hx-target="#typeahead-results"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      Search
+    </button>
+  </form>
+</div>

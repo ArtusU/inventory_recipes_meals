@@ -7,12 +7,7 @@ from accounts.views import (
     register_view
 )
 
-from articles.views import (
-    article_search_view,
-    article_create_view,
-    article_detail_view
-)
-
+from search.views import search_view
 from .views import home_view
 
 urlpatterns = [
@@ -23,6 +18,8 @@ urlpatterns = [
     path('pantry/recipes/', include('recipes.urls')),
     
     path('articles/', include('articles.urls')),
+    
+    path('search/', search_view),
     
     path('login/', login_view),
     path('logout/', logout_view),

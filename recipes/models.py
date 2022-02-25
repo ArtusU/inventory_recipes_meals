@@ -51,6 +51,9 @@ class Recipe(models.Model):
     def get_edit_url(self):
         return reverse('recipes:update', kwargs={'id': self.id})
     
+    def get_delete_url(self):
+        return reverse('recipes:delete', kwargs={'id': self.id})
+    
     def get_ingredients_children(self):
         return self.recipeingredient_set.all()
     
@@ -70,6 +73,12 @@ class RecipeIngredient(models.Model):
 
     def get_absolute_url(self):
         return self.recipe.get_absolute_url()
+    
+    def get_delete_url(self):
+        return reverse('recipes:ingredient-delete', kwargs={
+            'parent_id': self.recipe.id,
+            'id': self.id
+            })
     
     def get_hx_edit_url(self):
         kwargs = {

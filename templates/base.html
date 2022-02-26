@@ -16,18 +16,18 @@
     <script src="https://unpkg.com/htmx.org@1.5.0"></script>
     <style>
       .htmx-indicator {
-          display: none;
+        display: none;
       }
       .htmx-request .htmx-indicator {
-          display: inline;
+        display: inline;
       }
       .htmx-inverted-indicator {
-          display: inline;
+        display: inline;
       }
       .htmx-request .htmx-inverted-indicator {
-          display: none;
+        display: none;
       }
-  </style>
+    </style>
   </head>
   <body>
     {% include 'navbar.html' %}
@@ -36,5 +36,10 @@
       <div>{% block content %} {% endblock content %}</div>
     </main>
     <script src="" async defer></script>
+    <script>
+      document.body.addEventListener("htmx:configRequest", (event) => {
+        event.detail.headers["X-CSRFToken"] = "{{ csrf_token }}";
+      });
+    </script>
   </body>
 </html>

@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import RecipeIngredient, Recipe
+from .models import RecipeIngredient, Recipe, RecipeIngredientImage
 
+
+admin.site.register(RecipeIngredientImage)
 
 class RecipeIngredientInline(admin.StackedInline):
     model = RecipeIngredient

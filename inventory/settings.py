@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     
     'accounts',
     'articles',
+    'meals',
     'recipes',
     'search',
     

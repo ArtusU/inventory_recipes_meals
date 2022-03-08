@@ -1,40 +1,44 @@
 {% block content %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if request.user.is_authenticated %}
+        <a class="navbar-brand" href="/">Hello: {{ request.user.username }}</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='{% url "articles:search" %}'>Articles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='{% url "articles:create" %}'>Write Article</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='{% url "recipes:list" %}'>Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='{% url "recipes:create" %}'>Write Recipe</a>
+        </li>
+        
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/login"
+            >Login</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/register"
+            >Register</span></a
+          >
+        </li>
+        {% endif %}
+      </ul>
       {% if request.user.is_authenticated %}
-      <a class="navbar-brand" href="/">Hello: {{ request.user.username }}</a>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='{% url "articles:search" %}'>Articles</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='{% url "articles:create" %}'>Write Article</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='{% url "recipes:list" %}'>Recipes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='{% url "recipes:create" %}'>Write Recipe</a>
-      </li>
-      
-      {% else %}
-      <li class="nav-item active">
-        <a class="nav-link" href="/login"
-          >Login</span></a
-        >
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/register"
-          >Register</span></a
-        >
-      </li>
+      {% include 'search/search-form.html' %}
       {% endif %}
-    </ul>
-    {% include 'search/search-form.html' %}
+    </div>
   </div>
 </nav>
 
